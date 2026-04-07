@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇰🇷 五月首爾家庭行程</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 40px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at center, rgba(229,57,53,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-flag { font-size: 52px; margin-bottom: 8px; }
+  .hero-title { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; }
+  .hero-sub { font-size: 15px; opacity: 0.75; margin-bottom: 20px; }
+  .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .badge {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .nav-tabs {
+    display: flex;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    flex: 0 0 auto;
+    padding: 12px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .nav-tab.active { color: #e53935; border-bottom-color: #e53935; }
+  .nav-tab:hover { color: #e53935; }
+
+  .container { max-width: 680px; margin: 0 auto; padding: 0 16px 40px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .flight-card {
+    background: white;
+    border-radius: 16px;
+    margin: 16px 0;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .flight-header {
+    background: linear-gradient(135deg, #e53935, #c62828);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .flight-header-icon { font-size: 24px; }
+  .flight-header-text { flex: 1; }
+  .flight-header-title { font-size: 16px; font-weight: 700; }
+  .flight-header-sub { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+  .flight-body { padding: 20px; }
+  .flight-route { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .flight-city { text-align: center; flex: 1; }
+  .flight-city-code { font-size: 26px; font-weight: 700; color: #1d1d1f; }
+  .flight-city-name { font-size: 11px; color: #888; margin-top: 2px; }
+  .flight-city-time { font-size: 22px; font-weight: 600; color: #e53935; margin-top: 4px; }
+  .flight-city-date { font-size: 12px; color: #555; }
+  .flight-divider { flex: 1; display: flex; flex-direction: column; align-items: center; }
+  .flight-line { width: 100%; height: 2px; background: linear-gradient(to right, #e53935, #ccc); }
+  .flight-dur { font-size: 11px; color: #aaa; margin-top: 4px; }
+  .flight-arr { width: 0; height: 0; border-left: 8px solid #ccc; border-top: 5px solid transparent; border-bottom: 5px solid transparent; align-self: flex-end; margin-top: -13px; }
+  .flight-info-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .flight-chip {
+    background: #f5f5f7;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #555;
+  }
+  .flight-chip strong { color: #1d1d1f; }
+
+  .alert {
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 12px 0;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .alert-warning { background: #fff8e1; border-left: 4px solid #ffc107; }
+  .alert-info { background: #e3f2fd; border-left: 4px solid #2196f3; }
+  .alert-success { background: #e8f5e9; border-left: 4px solid #4caf50; }
+  .alert-icon { font-size: 18px; flex: 0 0 auto; margin-top: 1px; }
+  .alert strong { display: block; margin-bottom: 2px; }
+
+  .day-header { display: flex; align-items: center; gap: 14px; margin: 24px 0 16px; }
+  .day-badge {
+    background: #e53935;
+    color: white;
+    border-radius: 12px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .day-title-block { flex: 1; }
+  .day-title { font-size: 20px; font-weight: 700; }
+  .day-subtitle { font-size: 13px; color: #888; margin-top: 2px; }
+
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 9px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #e53935, #ffcdd2);
+  }
+  .tl-item { position: relative; margin-bottom: 16px; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 14px;
+    width: 12px; height: 12px;
+    background: white;
+    border: 3px solid #e53935;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .tl-card {
+    background: white;
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border: 1px solid #f0f0f0;
+  }
+  .tl-time { font-size: 12px; font-weight: 600; color: #e53935; margin-bottom: 5px; }
+  .tl-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .tl-desc { font-size: 13px; color: #555; line-height: 1.7; margin-bottom: 8px; }
+  .tl-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .tl-tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+  .tag-transport { background: #e3f2fd; color: #1565c0; }
+  .tag-food { background: #fce4ec; color: #c62828; }
+  .tag-activity { background: #e8f5e9; color: #2e7d32; }
+  .tag-tip { background: #fff8e1; color: #e65100; }
+  .tag-free { background: #f3e5f5; color: #6a1b9a; }
+  .tag-paid { background: #fff3e0; color: #e65100; }
+
+  .transport-box {
+    background: #f0f4ff;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #1a237e;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.6;
+  }
+  .transport-icon { font-size: 16px; flex: 0 0 auto; }
+
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .info-card {
+    background: white;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    text-align: center;
+  }
+  .info-card-icon { font-size: 28px; margin-bottom: 8px; }
+  .info-card-title { font-size: 13px; color: #888; margin-bottom: 4px; }
+  .info-card-value { font-size: 14px; font-weight: 700; color: #1d1d1f; line-height: 1.4; }
+
+  .section-title { font-size: 18px; font-weight: 700; margin: 24px 0 12px; display: flex; align-items: center; gap: 8px; }
+
+  .baggage-table {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin: 12px 0;
+  }
+  .baggage-table table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .baggage-table th { background: #f5f5f7; padding: 10px 12px; text-align: left; font-weight: 600; color: #555; font-size: 12px; }
+  .baggage-table td { padding: 10px 12px; border-top: 1px solid #f0f0f0; }
+
+  .everland-banner {
+    background: linear-gradient(135deg, #ff6f00, #e53935);
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 16px 0;
+    text-align: center;
+  }
+  .everland-banner h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .everland-banner p { font-size: 13px; opacity: 0.9; line-height: 1.6; }
+  .everland-chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+  .everland-chip {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .ride-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+  .ride-card {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid #f0f0f0;
+    font-size: 13px;
+  }
+  .ride-icon { font-size: 22px; margin-bottom: 4px; }
+  .ride-name { font-weight: 700; color: #1d1d1f; }
+  .ride-note { color: #888; font-size: 11px; margin-top: 2px; }
+
+  .food-card {
+    background: white;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .food-emoji { font-size: 32px; flex: 0 0 auto; }
+  .food-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .food-desc { font-size: 13px; color: #666; line-height: 1.5; }
+  .food-tag { font-size: 11px; color: #888; margin-top: 4px; }
+
+  .tips-list { list-style: none; }
+  .tips-list li {
+    background: white;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .tip-icon { font-size: 20px; flex: 0 0 auto; }
+
+  .checklist {
+    background: white;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin-bottom: 12px;
+  }
+  .checklist-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid #f5f5f7;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-box {
+    width: 20px; height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-top: 1px;
+  }
+  .check-item.checked .check-box { background: #4caf50; border-color: #4caf50; color: white; }
+  .check-item.checked .check-box::after { content: '✓'; font-size: 13px; font-weight: 700; }
+  .check-item.checked .check-text { text-decoration: line-through; color: #aaa; }
+
+  .footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-flag">🇰🇷</div>
+  <div class="hero-title">五月首爾家庭遊</div>
+  <div class="hero-sub">2026年5月2日 — 5月5日 · 2大1小（6歲）</div>
+  <div class="hero-badges">
+    <span class="badge">👧 6歲小朋友</span>
+    <span class="badge">🎡 愛寶樂園</span>
+    <span class="badge">🌸 首爾春天</span>
+    <span class="badge">4天3夜</span>
+  </div>
+</div>
+
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="showSection('overview')">✈️ 航班</div>
+  <div class="nav-tab" onclick="showSection('day1')">Day 1<br>5/2 六</div>
+  <div class="nav-tab" onclick="showSection('day2')">Day 2<br>5/3 日</div>
+  <div class="nav-tab" onclick="showSection('day3')">Day 3<br>5/4 一</div>
+  <div class="nav-tab" onclick="showSection('day4')">Day 4<br>5/5 二</div>
+  <div class="nav-tab" onclick="showSection('food')">🍜 美食</div>
+  <div class="nav-tab" onclick="showSection('tips')">💡 攻略</div>
+</div>
+
+<div class="container">
+
+<!-- ====== OVERVIEW ====== -->
+<div class="section active" id="overview">
+
+  <div class="section-title">✈️ 去程航班</div>
+  <div class="flight-card">
+    <div class="flight-header">
+      <div class="flight-header-icon">🛫</div>
+      <div class="flight-header-text">
+        <div class="flight-header-title">高雄 → 首爾 (金浦)</div>
+        <div class="flight-header-sub">濟州航空 7C6124 · 訂單 FE2JWQ</div>
+      </div>
+    </div>
+    <div class="flight-body">
+      <div class="flight-route">
+        <div class="flight-city">
+          <div class="flight-city-code">KHH</div>
+          <div class="flight-city-name">高雄國際機場</div>
+          <div class="flight-city-time">13:00</div>
+          <div class="flight-city-date">5月2日(六)</div>
+        </div>
+        <div class="flight-divider">
+          <div class="flight-line"></div>
+          <div class="flight-arr"></div>
+          <div class="flight-dur">約 2hr</div>
+        </div>
+        <div class="flight-city">
+          <div class="flight-city-code">GMP</div>
+          <div class="flight-city-name">金浦國際機場</div>
+          <div class="flight-city-time">16:55</div>
+          <div class="flight-city-date">5月2日(六)</div>
+        </div>
+      </div>
+      <div class="flight-info-row">
+        <div class="flight-chip">✈️ <strong>濟州航空 7C6124</strong></div>
+        <div class="flight-chip">💺 <strong>經濟艙</strong></div>
+        <div class="flight-chip">🧳 每人 <strong>15kg</strong> 託運</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:20px;">✈️ 回程航班</div>
+  <div class="flight-card">
+    <div class="flight-header" style="background:linear-gradient(135deg,#1565c0,#0d47a1);">
+      <div class="flight-header-icon">🛬</div>
+      <div class="flight-header-text">
+        <div class="flight-header-title">首爾 (仁川) → 高雄</div>
+        <div class="flight-header-sub">韓國德威航空 TW671 · 訂單 YM226C</div>
+      </div>
+    </div>
+    <div class="flight-body">
+      <div class="flight-route">
+        <div class="flight-city">
+          <div class="flight-city-code">ICN</div>
+          <div class="flight-city-name">仁川國際機場 T1</div>
+          <div class="flight-city-time" style="color:#1565c0;">13:05</div>
+          <div class="flight-city-date">5月5日(二)</div>
+        </div>
+        <div class="flight-divider">
+          <div class="flight-line" style="background:linear-gradient(to right,#1565c0,#ccc);"></div>
+          <div class="flight-arr"></div>
+          <div class="flight-dur">約 2hr</div>
+        </div>
+        <div class="flight-city">
+          <div class="flight-city-code">KHH</div>
+          <div class="flight-city-name">高雄國際機場</div>
+          <div class="flight-city-time" style="color:#1565c0;">15:10</div>
+          <div class="flight-city-date">5月5日(二)</div>
+        </div>
+      </div>
+      <div class="flight-info-row">
+        <div class="flight-chip">✈️ <strong>德威航空 TW671</strong></div>
+        <div class="flight-chip">💺 <strong>經濟艙</strong></div>
+        <div class="flight-chip">🧳 每人 <strong>15kg</strong> 託運</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <strong>⚠️ 注意！去回程機場不同</strong>
+      去程降落 <strong>金浦機場 (GMP)</strong>，回程從 <strong>仁川機場 T1 (ICN)</strong> 出發。<br>
+      5月5日 (兒童節) 需在 <strong>10:05 前抵達仁川機場</strong>，請務必早起！
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <div class="alert-icon">🎉</div>
+    <div>
+      <strong>5月5日是韓國兒童節！</strong> 國定假日，機場交通可能較擁擠，請提前出發前往機場。
+    </div>
+  </div>
+
+  <div class="section-title">👨‍👩‍👧 旅客資訊</div>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-icon">👩</div>
+      <div class="info-card-title">成人</div>
+      <div class="info-card-value">HUANG HSINJUI<br>KAO NINGCHUN</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">👧</div>
+      <div class="info-card-title">小童 (6歲)</div>
+      <div class="info-card-value">HUANG HSIANGHUNG</div>
+    </div>
+  </div>
+
+  <div class="section-title">🧳 行李限額</div>
+  <div class="baggage-table">
+    <table>
+      <tr>
+        <th>行李種類</th>
+        <th>去程 (濟州航空)</th>
+        <th>回程 (德威航空)</th>
+      </tr>
+      <tr>
+        <td>🎒 隨身物品</td>
+        <td>1件 ≤30×15×40cm</td>
+        <td>1件 ≤40×30×15cm</td>
+      </tr>
+      <tr>
+        <td>💼 手提行李</td>
+        <td>1件 ≤55×40×20cm</td>
+        <td>1件 ≤55×40×20cm</td>
+      </tr>
+      <tr>
+        <td>🧳 託運行李</td>
+        <td colspan="2" style="text-align:center;"><strong>每人 15 公斤</strong></td>
+      </tr>
+      <tr>
+        <td colspan="3" style="color:#e53935;font-size:12px;background:#fff8f8;">
+          ⚠️ 隨身物品＋手提行李合計不可超過 10kg
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<!-- ====== DAY 1 ====== -->
+<div class="section" id="day1">
+  <div class="day-header">
+    <div class="day-badge">Day 1<br>5/2 六</div>
+    <div class="day-title-block">
+      <div class="day-title">🛬 抵達首爾</div>
+      <div class="day-subtitle">金浦機場 → 入住 → 弘大夜遊</div>
+    </div>
+  </div>
+  <div class="alert alert-info">
+    <div class="alert-icon">💡</div>
+    <div>下午抵達，輕鬆安排即可。先讓孩子適應時差，晚上逛逛感受首爾氛圍！</div>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 16:55 抵達</div>
+        <div class="tl-title">✈️ 金浦國際機場 (GMP) 入境</div>
+        <div class="tl-desc">辦理入境手續、提取行李。建議在機場或便利商店 (GS25/CU) 購買 <strong>T-money 交通卡</strong> 並加值，搭地鐵超方便。</div>
+        <div class="transport-box">
+          <div class="transport-icon">🚇</div>
+          <div>
+            <strong>地鐵推薦：</strong>5號線或9號線進市區，至弘大/明洞約 30–40 分鐘，車費約 ₩1,450<br>
+            <strong>Kakao T（計程車App）：</strong>帶行李推薦叫車，至弘大約 ₩15,000–20,000（約台幣350–450）
+          </div>
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-transport">🚇 地鐵 5/9號線</span>
+          <span class="tl-tag tag-transport">🚗 Kakao T</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 18:00</div>
+        <div class="tl-title">🏨 入住飯店</div>
+        <div class="tl-desc">推薦住在 <strong>弘大 (Hongdae)</strong> 或 <strong>明洞 (Myeongdong)</strong>，交通方便，購物美食集中，適合帶小孩。卸下行李、稍作梳洗。</div>
+        <div class="tl-tags"><span class="tl-tag tag-tip">📍 推薦弘大或明洞區域</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 19:00</div>
+        <div class="tl-title">🍗 晚餐：弘大韓式料理</div>
+        <div class="tl-desc">弘大周邊美食超多，推薦 <strong>韓式炸雞</strong>（外酥內嫩，孩子必愛）或<strong>豆腐鍋 (순두부찌개)</strong>，暖呼呼又不太辣。</div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-food">🍗 韓式炸雞</span>
+          <span class="tl-tag tag-food">🥘 豆腐鍋</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 20:30</div>
+        <div class="tl-title">🌙 早點休息！</div>
+        <div class="tl-desc">帶小孩旅行體力消耗大，明天還有景福宮！今天建議 <strong>早點讓孩子入睡</strong>，調整時差最重要。</div>
+        <div class="tl-tags"><span class="tl-tag tag-tip">💤 早點休息調整時差</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== DAY 2 ====== -->
+<div class="section" id="day2">
+  <div class="day-header">
+    <div class="day-badge">Day 2<br>5/3 日</div>
+    <div class="day-title-block">
+      <div class="day-title">🏯 首爾文化巡禮</div>
+      <div class="day-subtitle">景福宮 → 北村 → 仁寺洞 → 明洞</div>
+    </div>
+  </div>
+  <div class="alert alert-success">
+    <div class="alert-icon">🌸</div>
+    <div>5月初首爾氣溫約 <strong>16–22°C</strong>，景福宮一帶可能還有晚開的春花，非常適合帶孩子戶外散步拍照！</div>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 08:30</div>
+        <div class="tl-title">🍳 早餐</div>
+        <div class="tl-desc">飯店早餐或附近便利商店 (CU/GS25/7-11)。韓國便利商店早餐超豐富，可試試<strong>三角飯糰、熱狗麵包、魚板湯</strong>，孩子通常很喜歡！</div>
+        <div class="tl-tags"><span class="tl-tag tag-food">🏪 便利商店早餐</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 09:30</div>
+        <div class="tl-title">🏯 景福宮 (경복궁)</div>
+        <div class="tl-desc">
+          首爾最著名的朝鮮王朝宮殿！6歲小朋友超喜歡。<br>
+          ⭐ <strong>守門將換崗儀式</strong>每天 <strong>10:00 & 14:00</strong>，色彩繽紛、熱鬧好看！<br>
+          👘 宮殿附近可租借 <strong>韓服</strong> 拍照，全家超有紀念感。
+        </div>
+        <div class="transport-box">
+          <div class="transport-icon">🚇</div>
+          <div><strong>地鐵 3號線「景福宮站」3號出口</strong>，步行約5分鐘</div>
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-activity">🏯 文化景點</span>
+          <span class="tl-tag tag-paid">🎟️ 大人₩3,000 / 小孩免費</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 11:30</div>
+        <div class="tl-title">🏘️ 北村韓屋村 (북촌한옥마을)</div>
+        <div class="tl-desc">從景福宮步行約15分鐘，保存完好的傳統韓屋聚落。巷弄超美，穿韓服拍照最有氣氛！<br>⚠️ 居民居住地，請保持安靜。</div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-activity">📸 打卡景點</span>
+          <span class="tl-tag tag-free">🆓 免費</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 12:30</div>
+        <div class="tl-title">🥞 午餐：仁寺洞 (인사동) 傳統街</div>
+        <div class="tl-desc">
+          充滿傳統文化的街道，必吃小吃：<br>
+          🥞 <strong>達摩煎餅 (호떡)</strong> - 熱呼呼的甜煎餅，孩子必愛！<br>
+          🍡 <strong>糖畫 / 棉花糖</strong> - 傳統手工藝小吃<br>
+          🍱 餐廳可選 <strong>拌飯 (비빔밥)</strong> 或清淡的<strong>韓式定食</strong>
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-food">🥞 호떡必吃</span>
+          <span class="tl-tag tag-food">🍱 傳統韓食</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 14:00</div>
+        <div class="tl-title">🛍️ 仁寺洞 SSAMZIEGIL 廣場</div>
+        <div class="tl-desc">庭院式特色商場，有傳統工藝品、文具、紀念品小店。孩子可以在廣場小庭院跑跑跳跳，幫他買個韓國傳統玩具。</div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-activity">🛍️ 逛街</span>
+          <span class="tl-tag tag-free">🆓 入場免費</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 16:00</div>
+        <div class="tl-title">🏙️ 明洞 (명동) 街頭小吃</div>
+        <div class="tl-desc">
+          首爾最熱鬧購物街！孩子最愛的街頭美食：<br>
+          🥚 <strong>雞蛋麵包</strong>、🌀 <strong>旋風薯片</strong>、🍢 <strong>魚板串</strong>
+        </div>
+        <div class="transport-box">
+          <div class="transport-icon">🚇</div>
+          <div><strong>地鐵 4號線「明洞站」</strong>下車即達</div>
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-activity">🛍️ 購物</span>
+          <span class="tl-tag tag-food">🥚 街頭小吃</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 18:30</div>
+        <div class="tl-title">🥩 晚餐：明洞烤肉</div>
+        <div class="tl-desc">明洞有大量韓式烤肉店，推薦五花肉 (삼겹살)。孩子可配 <strong>冷麵 (냉면)</strong> 或 <strong>海鮮煎餅 (해물전)</strong>。可請店員幫孩子剪肉，參與感超高！</div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-food">🥩 韓式烤肉</span>
+          <span class="tl-tag tag-paid">約₩15,000–25,000/人</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 20:30</div>
+        <div class="tl-title">😴 返回飯店休息</div>
+        <div class="tl-desc">明天是愛寶樂園日！要走很多路，請讓孩子早點休息，體力滿格迎接明天！</div>
+        <div class="tl-tags"><span class="tl-tag tag-tip">💤 明天愛寶樂園，早睡！</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== DAY 3 ====== -->
+<div class="section" id="day3">
+  <div class="day-header">
+    <div class="day-badge">Day 3<br>5/4 一</div>
+    <div class="day-title-block">
+      <div class="day-title">🎡 愛寶樂園全天！</div>
+      <div class="day-subtitle">Everland · 全家最期待的一天</div>
+    </div>
+  </div>
+
+  <div class="everland-banner">
+    <h3>🎡 愛寶樂園 (에버랜드)</h3>
+    <p>韓國最大主題樂園，5月春季花卉祭盛開中！<br>
+    <strong>5月4日(週一)是平日，人少排隊短，完美！</strong></p>
+    <div class="everland-chips">
+      <span class="everland-chip">🌸 Spring Fantasy 鬱金香季</span>
+      <span class="everland-chip">🦁 薩法利世界</span>
+      <span class="everland-chip">🎠 兒童樂園</span>
+      <span class="everland-chip">📸 超多拍照點</span>
+    </div>
+  </div>
+
+  <div class="alert alert-success">
+    <div class="alert-icon">✅</div>
+    <div><strong>平日優勢：</strong>週一人潮遠少於週末，熱門設施等待時間可縮短至30分鐘以內！</div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 07:30</div>
+        <div class="tl-title">🍳 快速早餐後出發</div>
+        <div class="tl-desc">愛寶樂園 <strong>10:00 開園</strong>，從首爾出發約需 1–1.5 小時，建議 <strong>08:00–08:30 離開飯店</strong>。</div>
+        <div class="tl-tags"><span class="tl-tag tag-tip">⏰ 08:00前出發</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 08:00</div>
+        <div class="tl-title">🚇 前往愛寶樂園</div>
+        <div class="tl-desc">
+          <strong>【方案A - 地鐵+輕軌（省錢）】</strong><br>
+          盆唐線 → 「전대·에버라인역」→ 轉 Everline 輕軌 → 「에버랜드역」<br>
+          全程約 1.5小時，費用約 ₩2,000/人<br><br>
+          <strong>【方案B - Kakao T 計程車（舒適推薦）】</strong><br>
+          帶小孩搭計程車更輕鬆，約 ₩50,000–70,000（台幣約1,100–1,500），約1小時直達。
+        </div>
+        <div class="transport-box">
+          <div class="transport-icon">💡</div>
+          <div>帶 6 歲孩子，<strong>建議搭計程車</strong>更輕鬆舒適，回程也較方便。使用 <strong>Kakao T App</strong> 叫車，輸入目的地可提前估價。</div>
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-transport">🚇 盆唐線+Everline</span>
+          <span class="tl-tag tag-transport">🚗 Kakao T推薦</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 09:30–10:00</div>
+        <div class="tl-title">🎫 購票入園</div>
+        <div class="tl-desc">
+          建議提前在 <strong>Klook 或 KKday</strong> 購票，比現場便宜約 10–20%！<br>
+          ⭐ 外國人可出示護照享 <strong>外國人優惠票</strong><br>
+          票價參考：大人 ₩58,000–65,000 / 小孩 ₩48,000–55,000
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-paid">🎟️ 推薦Klook提前購票</span>
+          <span class="tl-tag tag-tip">🛂 護照享外國人優惠</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 10:00</div>
+        <div class="tl-title">🎡 開始玩！適合6歲的設施</div>
+        <div class="ride-grid">
+          <div class="ride-card">
+            <div class="ride-icon">🦁</div>
+            <div class="ride-name">薩法利世界</div>
+            <div class="ride-note">開車近距離看獅虎！必玩</div>
+          </div>
+          <div class="ride-card">
+            <div class="ride-icon">🎠</div>
+            <div class="ride-name">旋轉木馬</div>
+            <div class="ride-note">歐洲廣場，全家同樂</div>
+          </div>
+          <div class="ride-card">
+            <div class="ride-icon">🚂</div>
+            <div class="ride-name">遊覽小火車</div>
+            <div class="ride-note">繞園一圈欣賞風景</div>
+          </div>
+          <div class="ride-card">
+            <div class="ride-icon">🐼</div>
+            <div class="ride-name">動物農場</div>
+            <div class="ride-note">近距離摸小動物</div>
+          </div>
+          <div class="ride-card">
+            <div class="ride-icon">🌸</div>
+            <div class="ride-name">鬱金香大道</div>
+            <div class="ride-note">Spring Fantasy 必拍！</div>
+          </div>
+          <div class="ride-card">
+            <div class="ride-icon">🎪</div>
+            <div class="ride-name">兒童遊樂區</div>
+            <div class="ride-note">專為幼兒設計設施</div>
+          </div>
+        </div>
+        <div class="alert alert-warning" style="margin-top:10px; font-size:13px;">
+          <div class="alert-icon">⚠️</div>
+          <div>刺激遊樂設施通常需要身高 120–130cm 以上，<strong>6歲孩子建議以薩法利、旋轉設施、動物區為主</strong>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 12:30</div>
+        <div class="tl-title">🍜 園內午餐</div>
+        <div class="tl-desc">園內有多家餐廳，推薦拉麵、炸醬麵或輕食。<br>💡 也可自備小零食入場，休息時補充能量。</div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-food">🍜 園內用餐</span>
+          <span class="tl-tag tag-tip">💡 可自備零食</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 18:00</div>
+        <div class="tl-title">👋 離開愛寶樂園</div>
+        <div class="tl-desc">傍晚出發避開人潮高峰。孩子玩了一整天，回到市區可在飯店附近吃個輕食晚餐。<strong>明天要趕飛機！記得今晚打包行李。</strong></div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-tip">⏰ 18:00前出發</span>
+          <span class="tl-tag tag-tip">🧳 今晚打包行李！</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== DAY 4 ====== -->
+<div class="section" id="day4">
+  <div class="day-header">
+    <div class="day-badge">Day 4<br>5/5 二</div>
+    <div class="day-title-block">
+      <div class="day-title">✈️ 返程日</div>
+      <div class="day-subtitle">韓國兒童節 🎉 → 仁川機場出發</div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <div class="alert-icon">🚨</div>
+    <div>
+      <strong>重要！回程是仁川機場 T1 (ICN)，不是金浦！</strong><br>
+      航班 <strong>TW671 · 13:05</strong> 出發 → 需在 <strong>10:05 前抵達仁川機場</strong><br>
+      建議 <strong>08:30 離開飯店</strong>，搭 AREX 直達約43分鐘。
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <div class="alert-icon">🎊</div>
+    <div><strong>5月5日是韓國兒童節！</strong> 國定假日，交通仍正常運行但可能較擁擠，請預留多一點時間。</div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 07:00</div>
+        <div class="tl-title">⏰ 起床、退房準備</div>
+        <div class="tl-desc">確認行李打包完畢，護照、機票確認，快速吃個早餐。</div>
+        <div class="tl-tags"><span class="tl-tag tag-tip">🧳 行李再確認</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 08:30</div>
+        <div class="tl-title">🚆 前往仁川國際機場</div>
+        <div class="tl-desc">
+          <strong>強烈推薦：AREX 直達列車</strong><br>
+          首爾站 → 仁川機場 T1，僅需 <strong>43分鐘</strong>，票價 ₩9,500/人<br>
+          班距每30分鐘一班（6:10–22:40）<br><br>
+          <strong>計程車：</strong>帶行李可選，約1–1.5小時，₩60,000–80,000
+        </div>
+        <div class="transport-box">
+          <div class="transport-icon">🚆</div>
+          <div>
+            <strong>AREX 直達：</strong>首爾站 B1 找「공항철도 직통」月台<br>
+            💡 可在首爾站 AREX 站辦理 <strong>市內 Check-in</strong> 並託運行李，機場不用再等！
+          </div>
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-transport">🚆 AREX直達 43分鐘</span>
+          <span class="tl-tag tag-tip">💡 首爾站可提前託運行李</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 09:15</div>
+        <div class="tl-title">🛫 仁川機場 T1 報到</div>
+        <div class="tl-desc">前往 <strong>德威航空 (T'Way Air) TW671</strong> 報到櫃台。出境後可在免稅店選購最後伴手禮！帶孩子可找 <strong>兒童遊樂區</strong> 等候登機。</div>
+        <div class="tl-tags"><span class="tl-tag tag-tip">✅ 訂單編號 YM226C</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 13:05</div>
+        <div class="tl-title">✈️ 起飛！平安回高雄</div>
+        <div class="tl-desc">德威航空 <strong>TW671</strong> 仁川 → 高雄，預計 <strong>15:10</strong> 抵達。圓滿結束首爾春日家庭之旅！</div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-transport">✈️ TW671</span>
+          <span class="tl-tag tag-tip">🏠 15:10 抵達高雄</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title">✅ 出發前確認清單</div>
+  <div class="checklist">
+    <div class="checklist-title">📋 離開飯店前必確認（點選打勾）</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <span class="check-text">護照 ×3（2大1小）</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <span class="check-text">機票訂單 YM226C（截圖備用）</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <span class="check-text">行李件數確認（每人1件託運＋手提＋隨身）</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <span class="check-text">T-money 卡退款（便利商店退₩，扣₩500手續費）</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <span class="check-text">剩餘韓元現金處理</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <span class="check-text">手機充電器、行動電源、SIM卡拔出</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <span class="check-text">孩子的玩具、安撫物品裝好</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <span class="check-text">飯店退房 Check-out 完成</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <span class="check-text">確認目的地是仁川機場 T1（不是金浦！）</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ====== FOOD ====== -->
+<div class="section" id="food">
+  <div class="section-title">🍜 首爾必吃美食推薦</div>
+  <p style="font-size:14px;color:#666;margin-bottom:16px;">精選適合全家大小、孩子也愛的首爾美食！</p>
+
+  <div class="food-card">
+    <div class="food-emoji">🍗</div>
+    <div>
+      <div class="food-name">韓式炸雞 (치킨)</div>
+      <div class="food-desc">外酥內嫩，是首爾最受歡迎的平民美食。BHC、BBQ、教村炸雞都很好吃。孩子超愛！</div>
+      <div class="food-tag">📍 弘大、明洞 | 約₩18,000–25,000</div>
+    </div>
+  </div>
+
+  <div class="food-card">
+    <div class="food-emoji">🥩</div>
+    <div>
+      <div class="food-name">韓式烤肉 삼겹살</div>
+      <div class="food-desc">五花肉烤至金黃，包生菜一口吃。可請店員幫忙剪肉，小朋友參與感超高！</div>
+      <div class="food-tag">📍 明洞、弘大 | 約₩15,000–20,000/人</div>
+    </div>
+  </div>
+
+  <div class="food-card">
+    <div class="food-emoji">🥞</div>
+    <div>
+      <div class="food-name">達摩煎餅 호떡</div>
+      <div class="food-desc">熱騰騰的甜煎餅，裡面包紅糖花生內餡，是首爾街頭最受孩子歡迎的小吃！</div>
+      <div class="food-tag">📍 仁寺洞、明洞街頭 | ₩1,000–2,000</div>
+    </div>
+  </div>
+
+  <div class="food-card">
+    <div class="food-emoji">🥚</div>
+    <div>
+      <div class="food-name">雞蛋麵包 계란빵</div>
+      <div class="food-desc">烤模裡夾一整顆雞蛋，香軟好吃，孩子超愛！明洞街頭到處都有，便宜又飽足。</div>
+      <div class="food-tag">📍 明洞夜市 | ₩1,500–2,000</div>
+    </div>
+  </div>
+
+  <div class="food-card">
+    <div class="food-emoji">🍢</div>
+    <div>
+      <div class="food-name">魚板串 오뎅</div>
+      <div class="food-desc">熱湯魚板串，香Q有嚼勁。便利商店和街頭攤販都有，是韓國最常見的日常小食。</div>
+      <div class="food-tag">📍 便利商店、街頭攤販 | ₩500–1,000/串</div>
+    </div>
+  </div>
+
+  <div class="food-card">
+    <div class="food-emoji">🍱</div>
+    <div>
+      <div class="food-name">拌飯 비빔밥</div>
+      <div class="food-desc">各種蔬菜加拌醬，健康美味。可請店員做不辣版本，非常適合6歲小朋友。</div>
+      <div class="food-tag">📍 全首爾 | ₩8,000–15,000</div>
+    </div>
+  </div>
+
+  <div class="food-card">
+    <div class="food-emoji">🍦</div>
+    <div>
+      <div class="food-name">便利商店軟冰淇淋</div>
+      <div class="food-desc">韓國便利商店的軟冰淇淋超好吃！5月天氣微熱，孩子一定嚷著要吃。GS25、CU都有。</div>
+      <div class="food-tag">📍 全首爾便利商店 | ₩1,500–2,000</div>
+    </div>
+  </div>
+
+  <div class="alert alert-info" style="margin-top:8px;">
+    <div class="alert-icon">💡</div>
+    <div>
+      <strong>帶孩子點餐小秘訣</strong><br>
+      告訴店員：<strong>「안 맵게 해주세요」</strong>（an maepge haejuseyo）= 請不要辣<br>
+      韓國多數餐廳附白飯、湯、小菜，孩子通常都吃得飽！
+    </div>
+  </div>
+</div>
+
+<!-- ====== TIPS ====== -->
+<div class="section" id="tips">
+  <div class="section-title">💡 首爾旅遊攻略</div>
+
+  <ul class="tips-list">
+    <li>
+      <div class="tip-icon">🚇</div>
+      <div>
+        <strong>T-money 交通卡</strong><br>
+        搭首爾地鐵、公車必備。金浦機場、便利商店 (CU/GS25/7-11) 均可購買（₩4,000），加值後每次搭車享折扣。回台前可在便利商店退卡退餘額（₩500手續費）。
+      </div>
+    </li>
+    <li>
+      <div class="tip-icon">📱</div>
+      <div>
+        <strong>必備 App</strong><br>
+        🗺️ <strong>Naver Map / Kakao Map</strong> - 導航（比Google Maps更準確）<br>
+        🚗 <strong>Kakao T</strong> - 叫計程車，輸入目的地可估價<br>
+        🗣️ <strong>Papago</strong> - 即時翻譯神器<br>
+        🇹🇼 <strong>韓巢</strong> - 台灣人常用韓國旅遊資訊
+      </div>
+    </li>
+    <li>
+      <div class="tip-icon">💳</div>
+      <div>
+        <strong>現金 vs 刷卡</strong><br>
+        韓國刷卡超方便，大部分店家都接受 VISA/Mastercard。建議帶約 10–15 萬韓元現金備用，街頭小吃和市場通常需要現金。
+      </div>
+    </li>
+    <li>
+      <div class="tip-icon">🌡️</div>
+      <div>
+        <strong>5月首爾天氣</strong><br>
+        氣溫約 <strong>15–23°C</strong>，白天舒適，早晚較涼。建議穿薄外套，小朋友帶一件防風外套。偶有陣雨，帶折疊傘備用。
+      </div>
+    </li>
+    <li>
+      <div class="tip-icon">👧</div>
+      <div>
+        <strong>帶6歲孩子的小提醒</strong><br>
+        • 愛寶樂園刺激設施多有身高限制，可提前查詢官網<br>
+        • 首爾地鐵站有電梯，推嬰兒車也方便，尖峰時間較擠<br>
+        • 韓國人很喜歡小朋友，店員通常會特別照顧<br>
+        • 備些零食和小玩具，排隊時轉移孩子注意力
+      </div>
+    </li>
+    <li>
+      <div class="tip-icon">🎡</div>
+      <div>
+        <strong>愛寶樂園購票攻略</strong><br>
+        • <strong>Klook / KKday</strong> 提前購買通常便宜 10–20%<br>
+        • 外國人出示護照可享外國人特別優惠<br>
+        • 5月是 <strong>Spring Fantasy 花季</strong>，鬱金香大道超美！<br>
+        • 自備午餐或零食可省園內飲食費
+      </div>
+    </li>
+    <li>
+      <div class="tip-icon">🛍️</div>
+      <div>
+        <strong>退稅 TAX REFUND</strong><br>
+        同一商店消費 ₩30,000 以上可申請退稅（VAT 10%）。在仁川機場出境大廳找 <strong>Tax Refund</strong> 櫃台辦理，記得保留購物發票！
+      </div>
+    </li>
+    <li>
+      <div class="tip-icon">🌐</div>
+      <div>
+        <strong>上網方案</strong><br>
+        • <strong>預購韓國SIM卡</strong>：在蝦皮/Klook購買，到韓後直接插卡<br>
+        • <strong>WiFi分享器</strong>：3人共用划算，每天約台幣100–200元<br>
+        • 兩者皆可在金浦機場取件/取卡
+      </div>
+    </li>
+    <li>
+      <div class="tip-icon">🆘</div>
+      <div>
+        <strong>緊急聯絡</strong><br>
+        📞 報警：<strong>112</strong><br>
+        🚒 火警/救護：<strong>119</strong><br>
+        🗣️ 外國人旅遊諮詢（可說中文）：<strong>1330</strong>（24小時）<br>
+        🏛️ 台灣駐韓代表處：<strong>+82-2-399-2767</strong>
+      </div>
+    </li>
+  </ul>
+</div>
+
+</div><!-- end container -->
+
+<div class="footer">
+  🇰🇷 首爾家庭行程 · 2026年5月2日–5月5日<br>
+  2大1小 (6歲) · 愛寶樂園 · 景福宮 · 仁寺洞 · 明洞<br><br>
+  旅途平安，一家玩得開心！ ✈️🌸
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const ids = ['overview','day1','day2','day3','day4','food','tips'];
+    const idx = ids.indexOf(id);
+    if (idx >= 0) document.querySelectorAll('.nav-tab')[idx].classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+  }
+</script>
+</body>
+</html>
