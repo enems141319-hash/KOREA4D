@@ -331,6 +331,33 @@
     font-size: 12px;
     line-height: 1.8;
   }
+  .tl-img {
+    width: 100%; height: 165px; object-fit: cover;
+    border-radius: 8px; margin: 8px 0 10px; display: block;
+  }
+  .addr-box {
+    background: #f9f9f9; border-radius: 8px; padding: 8px 12px;
+    font-size: 12px; color: #555; margin: 8px 0; line-height: 1.8;
+  }
+  .shop-card {
+    background: white;
+    border-radius: 14px;
+    margin: 10px 0;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+  }
+  .shop-card img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  .shop-card-body { padding: 10px 14px 12px; font-size: 13px; color: #555; line-height: 1.6; }
+  .shop-card-title { font-size: 14px; font-weight: 700; color: #1d1d1f; margin-bottom: 4px; }
+  .shop-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  @media (max-width: 400px) { .shop-cards-row { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -504,7 +531,7 @@
     <div class="day-badge">Day 1<br>5/2 六</div>
     <div class="day-title-block">
       <div class="day-title">🛬 抵達首爾</div>
-      <div class="day-subtitle">金浦機場 → 入住 → 弘大夜遊</div>
+      <div class="day-subtitle">金浦機場 → 水原入住 → 華城夜景 → 水原갈비</div>
     </div>
   </div>
   <div class="alert alert-info">
@@ -521,43 +548,83 @@
         <div class="transport-box">
           <div class="transport-icon">🚇</div>
           <div>
-            <strong>地鐵推薦：</strong>5號線或9號線進市區，至弘大/明洞約 30–40 分鐘，車費約 ₩1,450<br>
-            <strong>Kakao T（計程車App）：</strong>帶行李推薦叫車，至弘大約 ₩15,000–20,000（約台幣350–450）
+            <strong>⚠️ 目的地：水原市（非首爾！）</strong><br>
+            <strong>地鐵路線：</strong>5號線 → 首爾站 → 轉1號線 → 水原站，約1.5–2小時，車費約₩2,400（約NT$50）<br>
+            → 水原站再搭計程車至飯店約10分鐘（₩5,000–7,000（約NT$110–150））<br>
+            <strong>Kakao T 直達（推薦）：</strong>帶行李直接叫車，金浦機場→飯店約₩60,000–80,000（台幣約1,350–1,800），車程約60–70分鐘
           </div>
         </div>
         <div class="tl-tags">
-          <span class="tl-tag tag-transport">🚇 地鐵 5/9號線</span>
-          <span class="tl-tag tag-transport">🚗 Kakao T</span>
+          <span class="tl-tag tag-transport">🚇 地鐵→水原站</span>
+          <span class="tl-tag tag-transport">🚗 Kakao T推薦</span>
         </div>
       </div>
     </div>
 
     <div class="tl-item">
       <div class="tl-card">
-        <div class="tl-time">⏰ 18:00</div>
-        <div class="tl-title">🏨 入住飯店</div>
-        <div class="tl-desc">推薦住在 <strong>弘大 (Hongdae)</strong> 或 <strong>明洞 (Myeongdong)</strong>，交通方便，購物美食集中，適合帶小孩。卸下行李、稍作梳洗。</div>
-        <div class="tl-tags"><span class="tl-tag tag-tip">📍 推薦弘大或明洞區域</span></div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-card">
-        <div class="tl-time">⏰ 19:00</div>
-        <div class="tl-title">🍗 晚餐：弘大韓式料理</div>
-        <div class="tl-desc">弘大周邊美食超多，推薦 <strong>韓式炸雞</strong>（外酥內嫩，孩子必愛）或<strong>豆腐鍋 (순두부찌개)</strong>，暖呼呼又不太辣。</div>
+        <div class="tl-time">⏰ 18:00–18:30</div>
+        <div class="tl-title">🏨 入住 HOTEL GADEN by Onyu Stay</div>
+        <div class="tl-desc">
+          📍 <strong>경기도 수원시 권선구 권선동 991-9（16565）</strong><br>　　京畿道 水原市 勸善區 勸善洞 991-9<br>
+          📞 +82-1032245572 | hotelgaden@naver.com<br>
+          🛎️ 入住時間：<strong>15:00後</strong>（5/2抵達時間剛好！）<br>
+          🛏️ 房型：<strong>家庭露台雙床房</strong>（最多3人）｜訂單號 1616330334950913
+        </div>
         <div class="tl-tags">
-          <span class="tl-tag tag-food">🍗 韓式炸雞</span>
-          <span class="tl-tag tag-food">🥘 豆腐鍋</span>
+          <span class="tl-tag tag-tip">📍 水原市勸善區</span>
+          <span class="tl-tag tag-tip">🔑 確認號 26093004</span>
         </div>
       </div>
     </div>
 
     <div class="tl-item">
       <div class="tl-card">
-        <div class="tl-time">⏰ 20:30</div>
-        <div class="tl-title">🌙 早點休息！</div>
-        <div class="tl-desc">帶小孩旅行體力消耗大，明天還有景福宮！今天建議 <strong>早點讓孩子入睡</strong>，調整時差最重要。</div>
+        <div class="tl-time">⏰ 18:45</div>
+        <div class="tl-title">🏯 수원화성（水原華城）傍晚散步</div>
+        <img class="tl-img" src="https://res.klook.com/image/upload/c_crop,h_787,w_1400,x_0,y_202,z_0.3/w_750,h_469,c_fill,q_85/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/zethxctbkpqy5wnyek15.jpg" alt="🏯 수원화성（水原華城）傍晚散步" onerror="this.style.display='none'">
+        <div class="addr-box">📍 <strong>수원시 팔달구 행궁로 11（팔달문 일대）</strong><br>　　京畿道 水原市 八達區 行宮路 11號<br>⏰ 3–10月 09:00–18:00 ／ 11–2月 09:00–17:00｜城牆外圍免費</div>
+        <div class="tl-desc">
+          放下行李後搭計程車約15分鐘直達！<strong>水原華城</strong>是UNESCO世界文化遺產，18世紀朝鮮城牆保存完整，傍晚打上燈光非常美，春天還有花，很適合帶孩子輕鬆漫步拍照。<br>
+          推薦走 <strong>팔달문（八達門）→ 화서문（華西門）</strong> 精華段，約30–40分鐘輕鬆逛完，不用走全程。<br>
+          ⭐ 夜晚打燈後城牆倒影很美，是水原打卡必拍！
+        </div>
+        <div class="transport-box">
+          <div class="transport-icon">🚗</div>
+          <div>飯店搭計程車至華城約₩6,000–8,000（約NT$130–180），15–20分鐘。晚餐後再叫 Kakao T 回飯店即可。</div>
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-activity">🏯 UNESCO世界遺產</span>
+          <span class="tl-tag tag-free">🆓 城牆外圍免費</span>
+          <span class="tl-tag tag-tip">📸 傍晚打燈超美</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 19:30</div>
+        <div class="tl-title">🥩 晚餐：水原必吃！수원갈비（水原排骨）</div>
+        <img class="tl-img" src="https://lilytogo.com/wp-content/uploads/2024/05/20240407-t01.jpeg" alt="🥩 晚餐：水原必吃！수원갈비（水原排骨）" onerror="this.style.display='none'">
+        <div class="addr-box">📍 <strong>마포본가：경기도 수원시 팔달구 인계동 959-5</strong><br>　　京畿道 水原市 八達區 仁溪洞 959-5<br>⏰ 12:00–22:00｜八達門步行圈內多家老字號排骨店</div>
+        <div class="tl-desc">
+          水原最有名的在地美食就是 <strong>수원갈비（水原牛小排）</strong>，肉厚醬香、比一般烤肉更有份量，是來水原必吃的代表料理！<br>
+          就在華城 <strong>팔달문（八達門）附近</strong>有很多老字號갈비店，逛完城牆直接步行過去吃超方便。<br>
+          孩子也可以吃 <strong>冷麵 (냉면)</strong> 或 <strong>韓式蛋捲飯 (계란볶음밥)</strong>，清淡不辣好入口。
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-food">🥩 水原갈비必吃</span>
+          <span class="tl-tag tag-food">🍱 韓式定食</span>
+          <span class="tl-tag tag-tip">📍 水原在地特色</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 21:00</div>
+        <div class="tl-title">🌙 返回飯店，早點休息！</div>
+        <div class="tl-desc">餐後可在飯店附近小逛一下，感受水原的夜晚氛圍。帶小孩旅行體力消耗大，明天還要進首爾跑景福宮全日行程，今天務必 <strong>早點讓孩子入睡</strong>，調整時差最重要。</div>
         <div class="tl-tags"><span class="tl-tag tag-tip">💤 早點休息調整時差</span></div>
       </div>
     </div>
@@ -578,6 +645,14 @@
     <div class="alert-icon">🌸</div>
     <div>5月初首爾氣溫約 <strong>16–22°C</strong>，景福宮一帶可能還有晚開的春花，非常適合帶孩子戶外散步拍照！</div>
   </div>
+  <div class="alert alert-info">
+    <div class="alert-icon">🚇</div>
+    <div>
+      <strong>水原→首爾通勤提醒</strong><br>
+      飯店在水原市，前往今日景點需提前出發。<br>
+      計程車至水原站（₩5,000（約NT$110），約10分鐘）→ 地鐵1號線→首爾，約 <strong>50–60分鐘</strong>，車費約₩2,400（約NT$50）
+    </div>
+  </div>
   <div class="timeline">
 
     <div class="tl-item">
@@ -593,6 +668,8 @@
       <div class="tl-card">
         <div class="tl-time">⏰ 09:30</div>
         <div class="tl-title">🏯 景福宮 (경복궁)</div>
+        <img class="tl-img" src="https://blog-static.kkday.com/zh-tw/blog/wp-content/uploads/P1320052.jpg" alt="🏯 景福宮 (경복궁)" onerror="this.style.display='none'">
+        <div class="addr-box">📍 <strong>서울 종로구 사직로 161</strong><br>　　首爾市 鍾路區 社稷路 161號｜地鐵3號線 경복궁역 5號出口<br>⏰ 09:00–18:00（週二休館）｜大人₩3,000（約NT$66） / 小孩免費</div>
         <div class="tl-desc">
           首爾最著名的朝鮮王朝宮殿！6歲小朋友超喜歡。<br>
           ⭐ <strong>守門將換崗儀式</strong>每天 <strong>10:00 & 14:00</strong>，色彩繽紛、熱鬧好看！<br>
@@ -604,7 +681,7 @@
         </div>
         <div class="tl-tags">
           <span class="tl-tag tag-activity">🏯 文化景點</span>
-          <span class="tl-tag tag-paid">🎟️ 大人₩3,000 / 小孩免費</span>
+          <span class="tl-tag tag-paid">🎟️ 大人₩3,000（約NT$70） / 小孩免費</span>
         </div>
       </div>
     </div>
@@ -613,10 +690,22 @@
       <div class="tl-card">
         <div class="tl-time">⏰ 11:30</div>
         <div class="tl-title">🏘️ 北村韓屋村 (북촌한옥마을)</div>
+        <img class="tl-img" src="https://tong.visitkorea.or.kr/cms/resource/04/3304404_image2_1.jpg" alt="🏘️ 北村韓屋村 (북촌한옥마을)" onerror="this.style.display='none'">
+        <div class="addr-box">📍 <strong>서울 종로구 계동길 37 일대</strong><br>　　首爾市 鍾路區 桂洞街 37 一帶｜地鐵3號線 안국역 2號出口<br>⏰ 全天開放（居民住宅區，請保持安靜）</div>
         <div class="tl-desc">從景福宮步行約15分鐘，保存完好的傳統韓屋聚落。巷弄超美，穿韓服拍照最有氣氛！<br>⚠️ 居民居住地，請保持安靜。</div>
+        <div class="shop-card">
+          <img src="https://ian.marieclaire.com.tw/assets/mc/202508/68943F232667A1754545955.png?t=auto&w=1200%2C675&format=jpg" alt="安國站一帶">
+          <div class="shop-card-body">
+            <div class="shop-card-title">🍪 順路必買！Sand 100 草莓夾心餅乾</div>
+            就在北村旁的<strong>安國站3號出口步行5分鐘</strong>，草莓奶油夾心餅乾是首爾超人氣伴手禮！盒裝精緻適合帶回台灣。<br>
+            📍 서울 종로구 삼청로 35-1（안국역 3번 출구 도보 5분）<br>
+            ⏰ 10:00–18:00
+          </div>
+        </div>
         <div class="tl-tags">
           <span class="tl-tag tag-activity">📸 打卡景點</span>
           <span class="tl-tag tag-free">🆓 免費</span>
+          <span class="tl-tag tag-food">🍪 Sand 100 順路</span>
         </div>
       </div>
     </div>
@@ -625,6 +714,8 @@
       <div class="tl-card">
         <div class="tl-time">⏰ 12:30</div>
         <div class="tl-title">🥞 午餐：仁寺洞 (인사동) 傳統街</div>
+        <img class="tl-img" src="https://img.gototravel.tw/webp/2019/korea/seoul/seoul-tower/Insadong-39.jpg.webp" alt="🥞 午餐：仁寺洞 (인사동) 傳統街" onerror="this.style.display='none'">
+        <div class="addr-box">📍 <strong>서울 종로구 인사동길 일대</strong><br>　　首爾市 鍾路區 仁寺洞街 一帶｜地鐵3號線 안국역 6號出口<br>⏰ 10:00–22:00（各店略有不同）</div>
         <div class="tl-desc">
           充滿傳統文化的街道，必吃小吃：<br>
           🥞 <strong>達摩煎餅 (호떡)</strong> - 熱呼呼的甜煎餅，孩子必愛！<br>
@@ -642,6 +733,8 @@
       <div class="tl-card">
         <div class="tl-time">⏰ 14:00</div>
         <div class="tl-title">🛍️ 仁寺洞 SSAMZIEGIL 廣場</div>
+        <img class="tl-img" src="https://travelreadyhk.com/images/stories/travel/seoul/visit-seoul-090.jpg" alt="🛍️ 仁寺洞 SSAMZIEGIL 廣場" onerror="this.style.display='none'">
+        <div class="addr-box">📍 <strong>서울 종로구 인사동길 44</strong><br>　　首爾市 鍾路區 仁寺洞街 44號<br>⏰ 10:30–20:30</div>
         <div class="tl-desc">庭院式特色商場，有傳統工藝品、文具、紀念品小店。孩子可以在廣場小庭院跑跑跳跳，幫他買個韓國傳統玩具。</div>
         <div class="tl-tags">
           <span class="tl-tag tag-activity">🛍️ 逛街</span>
@@ -658,6 +751,13 @@
           首爾最熱鬧購物街！孩子最愛的街頭美食：<br>
           🥚 <strong>雞蛋麵包</strong>、🌀 <strong>旋風薯片</strong>、🍢 <strong>魚板串</strong>
         </div>
+        <div class="shop-card">
+          <img src="https://www.hanchao.com/varimg/photogallery/Article_Photo/12820/big_227274.jpg" alt="DAISO 明洞">
+          <div class="shop-card-body">
+            <div class="shop-card-title">🛒 明洞 DAISO 大創（12層樓！）</div>
+            明洞最大型 DAISO，整棟12層樓韓國限定商品！Disney聯名、文具、零食、伴手禮一次買齊，孩子超愛逛，預算₩1,000（約NT$20）起跳。
+          </div>
+        </div>
         <div class="transport-box">
           <div class="transport-icon">🚇</div>
           <div><strong>地鐵 4號線「明洞站」</strong>下車即達</div>
@@ -665,6 +765,7 @@
         <div class="tl-tags">
           <span class="tl-tag tag-activity">🛍️ 購物</span>
           <span class="tl-tag tag-food">🥚 街頭小吃</span>
+          <span class="tl-tag tag-activity">🛒 DAISO必逛</span>
         </div>
       </div>
     </div>
@@ -673,10 +774,47 @@
       <div class="tl-card">
         <div class="tl-time">⏰ 18:30</div>
         <div class="tl-title">🥩 晚餐：明洞烤肉</div>
+        <img class="tl-img" src="https://img.bigfang.tw/2019/02/1550835923-47d0bc8f45a3acc7ada43e542264f19a.jpg" alt="🥩 晚餐：明洞烤肉" onerror="this.style.display='none'">
+        <div class="addr-box">📍 <strong>왕비집（王妃家）：서울 중구 명동8가길 26 2F</strong><br>　　首爾市 中區 明洞8街 26號 2樓<br>⏰ 11:00–23:00（最終點餐 21:00）</div>
         <div class="tl-desc">明洞有大量韓式烤肉店，推薦五花肉 (삼겹살)。孩子可配 <strong>冷麵 (냉면)</strong> 或 <strong>海鮮煎餅 (해물전)</strong>。可請店員幫孩子剪肉，參與感超高！</div>
         <div class="tl-tags">
           <span class="tl-tag tag-food">🥩 韓式烤肉</span>
-          <span class="tl-tag tag-paid">約₩15,000–25,000/人</span>
+          <span class="tl-tag tag-paid">約₩15,000–25,000（約NT$330–550）/人</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-time">⏰ 19:30（可選）</div>
+        <div class="tl-title">🛍️ 順路弘大：CHUU ＋ Butter & Shelter</div>
+        <div class="tl-desc">
+          從明洞搭地鐵2號線約15分鐘可到弘大，兩個必買品牌就在附近，買完再回水原。體力夠的話值得衝一趟！
+        </div>
+        <div class="shop-cards-row">
+          <div class="shop-card">
+            <img src="https://pimg.1px.tw/monpetitvoyage/1563529378-347231391.jpg" alt="CHUU">
+            <div class="shop-card-body">
+              <div class="shop-card-title">👖 CHUU 減重5kg牛仔褲</div>
+              弘大旗艦店，韓國爆紅顯瘦牛仔褲，版型超好！<br>
+              📍 서울 마포구 와우산로29다길 20<br>
+              ⏰ 11:00–23:00
+            </div>
+          </div>
+          <div class="shop-card">
+            <img src="https://assets.funliday.com/posts/wp-content/uploads/2025/04/29171527/12-4.jpg" alt="Butter & Shelter">
+            <div class="shop-card-body">
+              <div class="shop-card-title">🧈 Butter & Shelter 奶油餅乾</div>
+              弘大入口站步行10分鐘，奶油夾心餅乾超香！<br>
+              📍 서울 마포구 성미산로 170 102호<br>
+              ⏰ 10:00–21:00
+            </div>
+          </div>
+        </div>
+        <div class="tl-tags">
+          <span class="tl-tag tag-activity">👖 CHUU弘大旗艦</span>
+          <span class="tl-tag tag-food">🧈 Butter &amp; Shelter</span>
+          <span class="tl-tag tag-tip">💡 體力夠再去</span>
         </div>
       </div>
     </div>
@@ -684,8 +822,17 @@
     <div class="tl-item">
       <div class="tl-card">
         <div class="tl-time">⏰ 20:30</div>
-        <div class="tl-title">😴 返回飯店休息</div>
+        <div class="tl-title">😴 返回水原飯店休息</div>
         <div class="tl-desc">明天是愛寶樂園日！要走很多路，請讓孩子早點休息，體力滿格迎接明天！</div>
+        <div class="transport-box">
+          <div class="transport-icon">🚇</div>
+          <div>
+            <strong>明洞→水原飯店：</strong><br>
+            地鐵4號線「明洞站」→「首爾站」→ 轉1號線 →「水原站」，約55–65分鐘，車費約₩2,000（約NT$40）<br>
+            水原站再搭計程車至飯店約10分鐘（₩5,000–7,000（約NT$110–150））<br>
+            <strong>Kakao T 直達：</strong>約₩40,000–55,000（約NT$880–1,210），40–50分鐘（帶孩子晚上推薦）
+          </div>
+        </div>
         <div class="tl-tags"><span class="tl-tag tag-tip">💤 明天愛寶樂園，早睡！</span></div>
       </div>
     </div>
@@ -726,7 +873,7 @@
       <div class="tl-card">
         <div class="tl-time">⏰ 07:30</div>
         <div class="tl-title">🍳 快速早餐後出發</div>
-        <div class="tl-desc">愛寶樂園 <strong>10:00 開園</strong>，從首爾出發約需 1–1.5 小時，建議 <strong>08:00–08:30 離開飯店</strong>。</div>
+        <div class="tl-desc">愛寶樂園 <strong>10:00 開園</strong>。從水原飯店出發約 <strong>40–60 分鐘</strong>即達，比從首爾近多了！建議 <strong>08:30–09:00 離開飯店</strong>即可。</div>
         <div class="tl-tags"><span class="tl-tag tag-tip">⏰ 08:00前出發</span></div>
       </div>
     </div>
@@ -736,18 +883,18 @@
         <div class="tl-time">⏰ 08:00</div>
         <div class="tl-title">🚇 前往愛寶樂園</div>
         <div class="tl-desc">
-          <strong>【方案A - 地鐵+輕軌（省錢）】</strong><br>
-          盆唐線 → 「전대·에버라인역」→ 轉 Everline 輕軌 → 「에버랜드역」<br>
-          全程約 1.5小時，費用約 ₩2,000/人<br><br>
-          <strong>【方案B - Kakao T 計程車（舒適推薦）】</strong><br>
-          帶小孩搭計程車更輕鬆，約 ₩50,000–70,000（台幣約1,100–1,500），約1小時直達。
+          <strong>【方案A - Kakao T 計程車（水原出發推薦）】</strong><br>
+          水原飯店直達愛寶樂園，約₩40,000–50,000（台幣約900–1,100），車程約40–50分鐘<br><br>
+          <strong>【方案B - 地鐵+輕軌（省錢）】</strong><br>
+          水原站 → 수인분당線 → 기흥역 → 轉 Everline輕軌 → 「에버랜드역」<br>
+          全程約 60–70分鐘，費用約₩2,000（約NT$40）/人
         </div>
         <div class="transport-box">
           <div class="transport-icon">💡</div>
-          <div>帶 6 歲孩子，<strong>建議搭計程車</strong>更輕鬆舒適，回程也較方便。使用 <strong>Kakao T App</strong> 叫車，輸入目的地可提前估價。</div>
+          <div>從水原出發比首爾更近愛寶樂園！帶6歲孩子<strong>建議直接叫 Kakao T</strong>，車程約40–50分鐘又舒適，回程也輕鬆。</div>
         </div>
         <div class="tl-tags">
-          <span class="tl-tag tag-transport">🚇 盆唐線+Everline</span>
+          <span class="tl-tag tag-transport">🚇 수인분당線+Everline</span>
           <span class="tl-tag tag-transport">🚗 Kakao T推薦</span>
         </div>
       </div>
@@ -760,7 +907,7 @@
         <div class="tl-desc">
           建議提前在 <strong>Klook 或 KKday</strong> 購票，比現場便宜約 10–20%！<br>
           ⭐ 外國人可出示護照享 <strong>外國人優惠票</strong><br>
-          票價參考：大人 ₩58,000–65,000 / 小孩 ₩48,000–55,000
+          票價參考：大人 ₩58,000–65,000（約NT$1,280–1,430） / 小孩 ₩48,000–55,000（約NT$1,060–1,210）
         </div>
         <div class="tl-tags">
           <span class="tl-tag tag-paid">🎟️ 推薦Klook提前購票</span>
@@ -827,8 +974,16 @@
     <div class="tl-item">
       <div class="tl-card">
         <div class="tl-time">⏰ 18:00</div>
-        <div class="tl-title">👋 離開愛寶樂園</div>
-        <div class="tl-desc">傍晚出發避開人潮高峰。孩子玩了一整天，回到市區可在飯店附近吃個輕食晚餐。<strong>明天要趕飛機！記得今晚打包行李。</strong></div>
+        <div class="tl-title">👋 離開愛寶樂園返回水原</div>
+        <div class="tl-desc">傍晚出發避開人潮高峰。孩子玩了一整天，回到水原飯店附近吃個輕食晚餐。<strong>明天要趕飛機！記得今晚打包行李。</strong></div>
+        <div class="transport-box">
+          <div class="transport-icon">🚗</div>
+          <div>
+            <strong>愛寶樂園→水原飯店：</strong><br>
+            <strong>Kakao T 推薦：</strong>約₩35,000–45,000（約NT$770–990），車程約35–45分鐘，輕鬆直達<br>
+            <strong>地鐵+輕軌：</strong>Everline → 기흥역 → 수인분당線 → 水原站，約50–60分鐘，再計程車10分鐘至飯店（₩5,000（約NT$110））
+          </div>
+        </div>
         <div class="tl-tags">
           <span class="tl-tag tag-tip">⏰ 18:00前出發</span>
           <span class="tl-tag tag-tip">🧳 今晚打包行李！</span>
@@ -854,7 +1009,7 @@
     <div>
       <strong>重要！回程是仁川機場 T1 (ICN)，不是金浦！</strong><br>
       航班 <strong>TW671 · 13:05</strong> 出發 → 需在 <strong>10:05 前抵達仁川機場</strong><br>
-      建議 <strong>08:30 離開飯店</strong>，搭 AREX 直達約43分鐘。
+      飯店在<strong>水原市</strong>，至仁川機場約需 <strong>1.5–2小時</strong>，建議 <strong>07:30 離開飯店</strong>！
     </div>
   </div>
 
@@ -867,33 +1022,35 @@
 
     <div class="tl-item">
       <div class="tl-card">
-        <div class="tl-time">⏰ 07:00</div>
+        <div class="tl-time">⏰ 06:30</div>
         <div class="tl-title">⏰ 起床、退房準備</div>
-        <div class="tl-desc">確認行李打包完畢，護照、機票確認，快速吃個早餐。</div>
+        <div class="tl-desc">確認行李打包完畢，護照、機票確認，快速吃個早餐。<strong>07:30前必須出發！</strong>（退房時間前可寄放行李）</div>
         <div class="tl-tags"><span class="tl-tag tag-tip">🧳 行李再確認</span></div>
       </div>
     </div>
 
     <div class="tl-item">
       <div class="tl-card">
-        <div class="tl-time">⏰ 08:30</div>
-        <div class="tl-title">🚆 前往仁川國際機場</div>
+        <div class="tl-time">⏰ 07:30</div>
+        <div class="tl-title">🚌 前往仁川國際機場（從水原出發）</div>
         <div class="tl-desc">
-          <strong>強烈推薦：AREX 直達列車</strong><br>
-          首爾站 → 仁川機場 T1，僅需 <strong>43分鐘</strong>，票價 ₩9,500/人<br>
-          班距每30分鐘一班（6:10–22:40）<br><br>
-          <strong>計程車：</strong>帶行李可選，約1–1.5小時，₩60,000–80,000
+          <strong>⭐ 推薦：水原站機場巴士直達</strong><br>
+          計程車至水原站（₩5,000（約NT$110），約10分鐘）→ 搭機場巴士（路線 1007/6770）直達仁川機場 T1<br>
+          車程約 <strong>80–90分鐘</strong>，票價約₩15,000（約NT$330）/人，最省心！<br><br>
+          <strong>地鐵+AREX：</strong>水原站 → 1號線 → 首爾站（50分鐘）→ AREX直達仁川（43分鐘），共約1.5小時，費用約₩12,000（約NT$260）/人<br><br>
+          <strong>Kakao T 計程車直達：</strong>水原→仁川機場約₩80,000–110,000（約NT$1,760–2,420），約1–1.5小時（帶大件行李最舒適）
         </div>
         <div class="transport-box">
-          <div class="transport-icon">🚆</div>
+          <div class="transport-icon">🚌</div>
           <div>
-            <strong>AREX 直達：</strong>首爾站 B1 找「공항철도 직통」月台<br>
-            💡 可在首爾站 AREX 站辦理 <strong>市內 Check-in</strong> 並託運行李，機場不用再等！
+            <strong>機場巴士最推薦：</strong>到水原站後在 <strong>「수원역 버스정류장」</strong> 候車，直達仁川機場 T1，不需換乘<br>
+            💡 韓國兒童節交通可能較忙，建議提前15–20分鐘候車
           </div>
         </div>
         <div class="tl-tags">
-          <span class="tl-tag tag-transport">🚆 AREX直達 43分鐘</span>
-          <span class="tl-tag tag-tip">💡 首爾站可提前託運行李</span>
+          <span class="tl-tag tag-transport">🚌 機場巴士 80–90分鐘</span>
+          <span class="tl-tag tag-transport">🚆 地鐵+AREX</span>
+          <span class="tl-tag tag-tip">⏰ 07:30出發！</span>
         </div>
       </div>
     </div>
@@ -938,7 +1095,7 @@
     </div>
     <div class="check-item" onclick="toggleCheck(this)">
       <div class="check-box"></div>
-      <span class="check-text">T-money 卡退款（便利商店退₩，扣₩500手續費）</span>
+      <span class="check-text">T-money 卡退款（便利商店退₩，扣₩500（約NT$10）手續費）</span>
     </div>
     <div class="check-item" onclick="toggleCheck(this)">
       <div class="check-box"></div>
@@ -974,7 +1131,7 @@
     <div>
       <div class="food-name">韓式炸雞 (치킨)</div>
       <div class="food-desc">外酥內嫩，是首爾最受歡迎的平民美食。BHC、BBQ、教村炸雞都很好吃。孩子超愛！</div>
-      <div class="food-tag">📍 弘大、明洞 | 約₩18,000–25,000</div>
+      <div class="food-tag">📍 弘大、明洞 | 約₩18,000–25,000（約NT$400–550）</div>
     </div>
   </div>
 
@@ -983,7 +1140,7 @@
     <div>
       <div class="food-name">韓式烤肉 삼겹살</div>
       <div class="food-desc">五花肉烤至金黃，包生菜一口吃。可請店員幫忙剪肉，小朋友參與感超高！</div>
-      <div class="food-tag">📍 明洞、弘大 | 約₩15,000–20,000/人</div>
+      <div class="food-tag">📍 明洞、弘大 | 約₩15,000–20,000（約NT$330–440）/人</div>
     </div>
   </div>
 
@@ -992,7 +1149,7 @@
     <div>
       <div class="food-name">達摩煎餅 호떡</div>
       <div class="food-desc">熱騰騰的甜煎餅，裡面包紅糖花生內餡，是首爾街頭最受孩子歡迎的小吃！</div>
-      <div class="food-tag">📍 仁寺洞、明洞街頭 | ₩1,000–2,000</div>
+      <div class="food-tag">📍 仁寺洞、明洞街頭 | ₩1,000–2,000（約NT$20–40）</div>
     </div>
   </div>
 
@@ -1001,7 +1158,7 @@
     <div>
       <div class="food-name">雞蛋麵包 계란빵</div>
       <div class="food-desc">烤模裡夾一整顆雞蛋，香軟好吃，孩子超愛！明洞街頭到處都有，便宜又飽足。</div>
-      <div class="food-tag">📍 明洞夜市 | ₩1,500–2,000</div>
+      <div class="food-tag">📍 明洞夜市 | ₩1,500–2,000（約NT$30–40）</div>
     </div>
   </div>
 
@@ -1010,7 +1167,7 @@
     <div>
       <div class="food-name">魚板串 오뎅</div>
       <div class="food-desc">熱湯魚板串，香Q有嚼勁。便利商店和街頭攤販都有，是韓國最常見的日常小食。</div>
-      <div class="food-tag">📍 便利商店、街頭攤販 | ₩500–1,000/串</div>
+      <div class="food-tag">📍 便利商店、街頭攤販 | ₩500–1,000（約NT$10–20）/串</div>
     </div>
   </div>
 
@@ -1019,7 +1176,7 @@
     <div>
       <div class="food-name">拌飯 비빔밥</div>
       <div class="food-desc">各種蔬菜加拌醬，健康美味。可請店員做不辣版本，非常適合6歲小朋友。</div>
-      <div class="food-tag">📍 全首爾 | ₩8,000–15,000</div>
+      <div class="food-tag">📍 全首爾 | ₩8,000–15,000（約NT$180–330）</div>
     </div>
   </div>
 
@@ -1028,7 +1185,7 @@
     <div>
       <div class="food-name">便利商店軟冰淇淋</div>
       <div class="food-desc">韓國便利商店的軟冰淇淋超好吃！5月天氣微熱，孩子一定嚷著要吃。GS25、CU都有。</div>
-      <div class="food-tag">📍 全首爾便利商店 | ₩1,500–2,000</div>
+      <div class="food-tag">📍 全首爾便利商店 | ₩1,500–2,000（約NT$30–40）</div>
     </div>
   </div>
 
@@ -1051,7 +1208,7 @@
       <div class="tip-icon">🚇</div>
       <div>
         <strong>T-money 交通卡</strong><br>
-        搭首爾地鐵、公車必備。金浦機場、便利商店 (CU/GS25/7-11) 均可購買（₩4,000），加值後每次搭車享折扣。回台前可在便利商店退卡退餘額（₩500手續費）。
+        搭首爾地鐵、公車必備。金浦機場、便利商店 (CU/GS25/7-11) 均可購買（₩4,000（約NT$90）），加值後每次搭車享折扣。回台前可在便利商店退卡退餘額（扣₩500（約NT$10）手續費）。
       </div>
     </li>
     <li>
@@ -1068,7 +1225,7 @@
       <div class="tip-icon">💳</div>
       <div>
         <strong>現金 vs 刷卡</strong><br>
-        韓國刷卡超方便，大部分店家都接受 VISA/Mastercard。建議帶約 10–15 萬韓元現金備用，街頭小吃和市場通常需要現金。
+       韓國刷卡超方便，大部分店家都接受 VISA/Mastercard。建議帶約 10–15 萬韓元現金備用，街頭小吃和市場通常需要現金。
       </div>
     </li>
     <li>
@@ -1102,7 +1259,7 @@
       <div class="tip-icon">🛍️</div>
       <div>
         <strong>退稅 TAX REFUND</strong><br>
-        同一商店消費 ₩30,000 以上可申請退稅（VAT 10%）。在仁川機場出境大廳找 <strong>Tax Refund</strong> 櫃台辦理，記得保留購物發票！
+        同一商店消費 ₩30,000（約NT$660）以上可申請退稅（VAT 10%）。在仁川機場出境大廳找 <strong>Tax Refund</strong> 櫃台辦理，記得保留購物發票！
       </div>
     </li>
     <li>
